@@ -5,9 +5,9 @@ namespace Parent.Persistence;
 
 public class GuardianRepository : IGuardianRepository
 {
-    private readonly GuardianDbContext _context;
+    private readonly ParentDbContext _context;
 
-    public GuardianRepository(GuardianDbContext context)
+    public GuardianRepository(ParentDbContext context)
     {
         _context = context;
     }

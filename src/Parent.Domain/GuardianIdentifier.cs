@@ -1,6 +1,8 @@
-﻿namespace Parent.Domain;
+﻿using Parent.Common;
 
-public record GuardianIdentifier
+namespace Parent.Domain;
+
+public record GuardianIdentifier : ValueObject
 {
     public Guid Id { get; }
 

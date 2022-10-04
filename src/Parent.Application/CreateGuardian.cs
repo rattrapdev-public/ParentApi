@@ -1,4 +1,5 @@
-﻿using Parent.Domain;
+﻿using Parent.Application.ViewModels;
+using Parent.Domain;
 
 namespace Parent.Application;
 
@@ -19,7 +20,7 @@ public class CreateGuardian : ICreateGuardian
         var name = new Name(model.FirstName, model.LastName);
         var email = new EmailAddress(model.Email);
         var address = new Address(model.Address1, model.Address2, model.City, model.State, model.Zip);
-        var parent = new Guardian(name, email, address);
+        var parent = Guardian.CreateNew(name, email, address);
 
         await _guardianRepository.Store(parent);
         await _unitOfWork.Commit();

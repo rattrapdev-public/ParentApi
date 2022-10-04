@@ -1,8 +1,7 @@
-﻿namespace Parent.Application;
+﻿namespace Parent.Application.ViewModels;
 
-public class ParentViewModel
+public class NewParentViewModel
 {
-    public Guid Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Email { get; set; }

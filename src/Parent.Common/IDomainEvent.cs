@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace Parent.Domain;
+namespace Parent.Common;
 
 public interface IDomainEvent : INotification
 {
-    public DateTime Occurred { get; }
+    DateTime OccurredOn { get; }
 }

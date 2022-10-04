@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Parent.Persistence;
 
+[Table("Guardians")]
 public class GuardianDto
 {
     [Key]

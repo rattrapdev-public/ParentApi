@@ -1,4 +1,4 @@
-﻿using Parent.Domain;
+﻿using Parent.Common;
 
 namespace Parent.Persistence;
 

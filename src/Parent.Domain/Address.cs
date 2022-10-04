@@ -1,6 +1,8 @@
-﻿namespace Parent.Domain
+﻿using Parent.Common;
+
+namespace Parent.Domain
 {
-    public record Address
+    public record Address : ValueObject
     {
         public string Address1 { get; }
         public string Address2 { get; }

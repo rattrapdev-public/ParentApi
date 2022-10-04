@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Parent.Common;
 
 namespace Parent.Domain.Events;
 
@@ -6,7 +7,7 @@ public record GuardianMovedEvent : IDomainEvent
 {
     public GuardianIdentifier GuardianIdentifier { get; }
     public Address Address { get; }
-    public DateTime Occurred { get; }
+    public DateTime OccurredOn { get; }
 
     // Domain Event : Internal value object used to alert internal services of something that happened
     // Integration Event : Smaller message for message bus used to alert something has changed
@@ -14,6 +15,6 @@ public record GuardianMovedEvent : IDomainEvent
     public GuardianMovedEvent(GuardianIdentifier guardianIdentifier)
     {
         GuardianIdentifier = guardianIdentifier;
-        Occurred = DateTime.UtcNow;
+        OccurredOn = DateTime.UtcNow;
     }
 }

@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Parent.Persistence;
 
@@ -10,14 +9,35 @@ using Parent.Persistence;
 
 namespace Parent.Persistence.Migrations
 {
-    [DbContext(typeof(GuardianDbContext))]
-    [Migration("20220929200936_InitialCreate")]
-    partial class InitialCreate
+    [DbContext(typeof(ParentDbContext))]
+    partial class ParentDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
+
+            modelBuilder.Entity("Parent.Persistence.ChildDto", b =>
+                {
+                    b.Property<Guid>("ChildId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("GuardianId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ChildId");
+
+                    b.ToTable("Children");
+                });
 
             modelBuilder.Entity("Parent.Persistence.GuardianDto", b =>
                 {
@@ -60,6 +80,36 @@ namespace Parent.Persistence.Migrations
                     b.HasKey("GuardianId");
 
                     b.ToTable("Guardians");
+                });
+
+            modelBuilder.Entity("Parent.Persistence.ToyDto", b =>
+                {
+                    b.Property<string>("Upc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("ChildDtoChildId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ChildId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Upc");
+
+                    b.HasIndex("ChildDtoChildId");
+
+                    b.ToTable("Toys");
+                });
+
+            modelBuilder.Entity("Parent.Persistence.ToyDto", b =>
+                {
+                    b.HasOne("Parent.Persistence.ChildDto", null)
+                        .WithMany("Toys")
+                        .HasForeignKey("ChildDtoChildId");
+                });
+
+            modelBuilder.Entity("Parent.Persistence.ChildDto", b =>
+                {
+                    b.Navigation("Toys");
                 });
 #pragma warning restore 612, 618
         }

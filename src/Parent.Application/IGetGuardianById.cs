@@ -1,4 +1,6 @@
-﻿namespace Parent.Application;
+﻿using Parent.Application.ViewModels;
+
+namespace Parent.Application;
 
 public interface IGetGuardianById
 {

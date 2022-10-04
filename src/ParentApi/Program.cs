@@ -8,7 +8,7 @@ using IPublisher = Parent.Persistence.IPublisher;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<GuardianDbContext>(options =>
+builder.Services.AddDbContext<ParentDbContext>(options =>
 {
    options.UseSqlite(@"Data Source = test.db");
 });
@@ -29,7 +29,7 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-   var guardianDbContext = scope.ServiceProvider.GetRequiredService<GuardianDbContext>();
+   var guardianDbContext = scope.ServiceProvider.GetRequiredService<ParentDbContext>();
    
    guardianDbContext.Database.Migrate();
 }

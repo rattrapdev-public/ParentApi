@@ -1,6 +1,8 @@
-﻿namespace Parent.Domain;
+﻿using Parent.Common;
 
-public record ChildIdentifier
+namespace Parent.Domain;
+
+public record ChildIdentifier : ValueObject
 {
     public Guid Id { get; }
 

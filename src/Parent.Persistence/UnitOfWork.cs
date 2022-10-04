@@ -1,25 +1,25 @@
 ﻿using Parent.Application;
-using Parent.Domain;
+using Parent.Common;
 
 namespace Parent.Persistence;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly GuardianDbContext _guardianDbContext;
+    private readonly ParentDbContext _parentDbContext;
     private readonly IPublisher _publisher;
 
-    public UnitOfWork(GuardianDbContext guardianDbContext, IPublisher publisher)
+    public UnitOfWork(ParentDbContext parentDbContext, IPublisher publisher)
     {
-        _guardianDbContext = guardianDbContext;
+        _parentDbContext = parentDbContext;
         _publisher = publisher;
     }
     
     public async Task Commit()
     {
-        var entitiesToPublish = _guardianDbContext.ChangeTracker.Entries<IEntity>().Select(x => x.Entity)
+        var entitiesToPublish = _parentDbContext.ChangeTracker.Entries<IEntity>().Select(x => x.Entity)
             .Where(x => x.DomainEvents.Any());
 
-        await _guardianDbContext.SaveChangesAsync();
+        await _parentDbContext.SaveChangesAsync();
 
         await _publisher.Publish(entitiesToPublish);
     }

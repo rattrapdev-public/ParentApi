@@ -1,19 +1,21 @@
-﻿namespace Parent.Domain;
+﻿using Parent.Common;
 
-public record Toy
+namespace Parent.Domain;
+
+public record Toy : ValueObject
 {
     public string Name { get; }
     public decimal Cost { get; }
-    public int ToyId { get; }
+    public string Upc { get; }
 
-    public Toy(int toyId, string name, decimal cost)
+    public Toy(string upc, string name, decimal cost)
     {
         if (cost <= 0)
         {
             throw new ArgumentException("Cost cannot be less than 0");
         }
 
-        ToyId = toyId;
+        Upc = upc;
         Name = name;
         Cost = cost;
     }
