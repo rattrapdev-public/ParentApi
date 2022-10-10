@@ -7,7 +7,9 @@ public class Guardian : IEntity
 {
     public static Guardian CreateNew(Name name, EmailAddress emailAddress, Address address)
     {
-        return new Guardian(GuardianIdentifier.CreateNew(), name, emailAddress, address);
+        var guardian = new Guardian(GuardianIdentifier.CreateNew(), name, emailAddress, address);
+        guardian._domainEventList.Add(new GuardianCreatedEvent(guardian.Identifier));
+        return guardian;
     }
 
     public static Guardian Reconstitute(GuardianIdentifier guardianIdentifier, Name name, EmailAddress emailAddress,

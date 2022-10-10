@@ -17,7 +17,7 @@ public class UnitOfWork : IUnitOfWork
     public async Task Commit()
     {
         var entitiesToPublish = _parentDbContext.ChangeTracker.Entries<IEntity>().Select(x => x.Entity)
-            .Where(x => x.DomainEvents.Any());
+            .Where(x => x.DomainEvents.Any()).ToList();
 
         await _parentDbContext.SaveChangesAsync();
 
