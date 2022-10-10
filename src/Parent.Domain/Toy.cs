@@ -4,19 +4,14 @@ namespace Parent.Domain;
 
 public record Toy : ValueObject
 {
-    public string Name { get; }
-    public decimal Cost { get; }
-    public string Upc { get; }
+    public string Name { get; private set; }
+    public string Upc { get; private set; }
+    
+    public Toy() {}
 
-    public Toy(string upc, string name, decimal cost)
+    public Toy(string upc, string name)
     {
-        if (cost <= 0)
-        {
-            throw new ArgumentException("Cost cannot be less than 0");
-        }
-
         Upc = upc;
         Name = name;
-        Cost = cost;
     }
 }

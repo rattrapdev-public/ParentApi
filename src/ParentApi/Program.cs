@@ -16,9 +16,12 @@ builder.Services.AddDbContext<ParentDbContext>(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IPublisher, Publisher>();
 builder.Services.AddScoped<IGuardianRepository, GuardianRepository>();
+builder.Services.AddScoped<IChildRepository, ChildRepository>();
 builder.Services.AddScoped<ICreateGuardian, CreateGuardian>();
 builder.Services.AddScoped<IGetAllGuardians, GetAllGuardians>();
 builder.Services.AddScoped<IGetGuardianById, GetGuardianById>();
+builder.Services.AddScoped<IAllChildren, AllChildren>();
+builder.Services.AddScoped<ICreateChild, CreateChild>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

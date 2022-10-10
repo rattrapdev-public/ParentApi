@@ -6,10 +6,12 @@ namespace Parent.Application;
 public class CreateChild : ICreateChild
 {
     private readonly IChildRepository _childRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public CreateChild(IChildRepository childRepository)
+    public CreateChild(IChildRepository childRepository, IUnitOfWork unitOfWork)
     {
         _childRepository = childRepository;
+        _unitOfWork = unitOfWork;
     }
     
     public async Task HandleAsync(NewChildViewModel viewModel)
@@ -19,5 +21,6 @@ public class CreateChild : ICreateChild
         var child = Child.CreateNew(guardianIdentifier, name);
 
         await _childRepository.Store(child);
+        await _unitOfWork.Commit();
     }
 }

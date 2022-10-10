@@ -16,35 +16,16 @@ namespace Parent.Persistence.Migrations
                     GuardianId = table.Column<Guid>(type: "TEXT", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
                     AddressLine1 = table.Column<string>(type: "TEXT", nullable: false),
                     AddressLine2 = table.Column<string>(type: "TEXT", nullable: false),
                     City = table.Column<string>(type: "TEXT", nullable: false),
                     State = table.Column<string>(type: "TEXT", nullable: false),
-                    Zip = table.Column<string>(type: "TEXT", nullable: false),
-                    EmailAddress = table.Column<string>(type: "TEXT", nullable: false)
+                    Zip = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Guardians", x => x.GuardianId);
-                });
-            
-            migrationBuilder.CreateTable(
-                name: "Children",
-                columns: table => new
-                {
-                    ChildId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    GuardianId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
-                    LastName = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Children", x => x.ChildId);
-                    table.ForeignKey(
-                        name: "FK_Guardians_Children_GuardianDtoGuardianId",
-                        column: x => x.GuardianId,
-                        principalTable: "Guardians",
-                        principalColumn: "GuardianId");
                 });
 
             migrationBuilder.CreateTable(
@@ -52,35 +33,72 @@ namespace Parent.Persistence.Migrations
                 columns: table => new
                 {
                     Upc = table.Column<string>(type: "TEXT", nullable: false),
-                    ChildId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ChildDtoChildId = table.Column<Guid>(type: "TEXT", nullable: true)
+                    ChildId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Toys", x => x.Upc);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Children",
+                columns: table => new
+                {
+                    ChildId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    GuardianIdentifier = table.Column<Guid>(type: "TEXT", nullable: false),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Children", x => x.ChildId);
                     table.ForeignKey(
-                        name: "FK_Toys_Children_ChildDtoChildId",
-                        column: x => x.ChildDtoChildId,
+                        name: "FK_Children_Guardians_GuardianIdentifier",
+                        column: x => x.GuardianIdentifier,
+                        principalTable: "Guardians",
+                        principalColumn: "GuardianId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Toy",
+                columns: table => new
+                {
+                    ChildIdentifier = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    ToyName = table.Column<string>(type: "TEXT", nullable: false),
+                    Upc = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Toy", x => new { x.ChildIdentifier, x.Id });
+                    table.ForeignKey(
+                        name: "FK_Toy_Children_ChildIdentifier",
+                        column: x => x.ChildIdentifier,
                         principalTable: "Children",
-                        principalColumn: "ChildId");
+                        principalColumn: "ChildId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Toys_ChildDtoChildId",
-                table: "Toys",
-                column: "ChildDtoChildId");
+                name: "IX_Children_GuardianIdentifier",
+                table: "Children",
+                column: "GuardianIdentifier");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Guardians");
+                name: "Toy");
 
             migrationBuilder.DropTable(
                 name: "Toys");
 
             migrationBuilder.DropTable(
                 name: "Children");
+
+            migrationBuilder.DropTable(
+                name: "Guardians");
         }
     }
 }

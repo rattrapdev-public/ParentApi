@@ -1,9 +1,10 @@
-﻿using Parent.Domain;
+﻿using Parent.Application.ViewModels;
+using Parent.Domain;
 
 namespace Parent.Application
 {
     public interface IGetAllGuardians
     {
-        Task<IEnumerable<Guardian>> HandleAsync();
+        Task<IEnumerable<GuardianViewModel>> HandleAsync();
     }
 }

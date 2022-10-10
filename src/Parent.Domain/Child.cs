@@ -6,7 +6,7 @@ public class Child : IEntity
 {
     public static Child CreateNew(GuardianIdentifier guardianIdentifier, Name name)
     {
-        return new Child(new ChildIdentifier(), guardianIdentifier, name, ToyBox.Empty());
+        return new Child(ChildIdentifier.CreateNew(), guardianIdentifier, name, ToyBox.Empty());
     }
 
     public static Child Reconstitute(ChildIdentifier childIdentifier, GuardianIdentifier guardianIdentifier, Name name,
@@ -15,7 +15,7 @@ public class Child : IEntity
         return new Child(childIdentifier, guardianIdentifier, name, toyBox);
     }
 
-    private List<IDomainEvent> _domainList;
+    private readonly List<IDomainEvent> _domainList;
 
     public IEnumerable<IDomainEvent> DomainEvents => _domainList;
     
@@ -23,8 +23,13 @@ public class Child : IEntity
     public GuardianIdentifier GuardianIdentifier { get; private set; }
     
     public Name Name { get; private set; }
-    
-    public ToyBox ToyBox { get; private set; }
+
+    public ToyBox ToyBox { get; private set; } = ToyBox.Empty();
+
+    public Child()
+    {
+        _domainList = new List<IDomainEvent>();
+    }
 
     protected Child(ChildIdentifier childIdentifier, GuardianIdentifier guardianIdentifier, Name name, ToyBox toyBox)
     {

@@ -4,7 +4,12 @@ namespace Parent.Domain;
 
 public record GuardianIdentifier : ValueObject
 {
-    public Guid Id { get; }
+    public static GuardianIdentifier CreateNew()
+    {
+        return new GuardianIdentifier(Guid.NewGuid());
+    }
+    
+    public Guid Id { get; private set; }
 
     public GuardianIdentifier(Guid id)
     {
@@ -18,6 +23,5 @@ public record GuardianIdentifier : ValueObject
 
     public GuardianIdentifier()
     {
-        Id = Guid.NewGuid();
     }
 }

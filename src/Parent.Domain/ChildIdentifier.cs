@@ -4,7 +4,13 @@ namespace Parent.Domain;
 
 public record ChildIdentifier : ValueObject
 {
-    public Guid Id { get; }
+    public static ChildIdentifier CreateNew() => new ChildIdentifier(Guid.NewGuid());
+    
+    public Guid Id { get; private set; }
+
+    public ChildIdentifier()
+    {
+    }
 
     public ChildIdentifier(Guid id)
     {
@@ -14,10 +20,5 @@ public record ChildIdentifier : ValueObject
         }
         
         Id = id;
-    }
-
-    public ChildIdentifier()
-    {
-        Id = Guid.NewGuid();
     }
 }

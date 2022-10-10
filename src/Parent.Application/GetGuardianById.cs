@@ -12,12 +12,12 @@ public class GetGuardianById : IGetGuardianById
         _guardianRepository = guardianRepository;
     }
     
-    public async Task<ParentViewModel> HandleAsync(Guid guardianId)
+    public async Task<GuardianViewModel> HandleAsync(Guid guardianId)
     {
         var guardian = await _guardianRepository.GetBy(new GuardianIdentifier(guardianId));
-        var model = new ParentViewModel
+        var model = new GuardianViewModel
         {
-            Id = guardian.Id,
+            GuardianId = guardian.Id,
             FirstName = guardian.Name.FirstName,
             LastName = guardian.Name.LastName,
             Email = guardian.Email.Email,

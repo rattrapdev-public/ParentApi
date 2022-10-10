@@ -4,5 +4,5 @@ namespace Parent.Application;
 
 public interface IGetGuardianById
 {
-    Task<ParentViewModel> HandleAsync(Guid guardianId);
+    Task<GuardianViewModel> HandleAsync(Guid guardianId);
 }

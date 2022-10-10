@@ -7,7 +7,7 @@ public class Guardian : IEntity
 {
     public static Guardian CreateNew(Name name, EmailAddress emailAddress, Address address)
     {
-        return new Guardian(new GuardianIdentifier(), name, emailAddress, address);
+        return new Guardian(GuardianIdentifier.CreateNew(), name, emailAddress, address);
     }
 
     public static Guardian Reconstitute(GuardianIdentifier guardianIdentifier, Name name, EmailAddress emailAddress,
@@ -21,10 +21,12 @@ public class Guardian : IEntity
     public IEnumerable<IDomainEvent> DomainEvents => _domainEventList;
 
     public Guid Id => Identifier.Id;
-    public GuardianIdentifier Identifier { get; }
+    public GuardianIdentifier Identifier { get; private set; }
     public Name Name { get; private set; }
     public EmailAddress Email { get; private set; }
     public Address Address { get; private set; }
+    
+    public Guardian() {}
 
     public Guardian(GuardianIdentifier guardianIdentifier, Name name, EmailAddress email, Address address)
     {

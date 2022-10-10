@@ -1,4 +1,5 @@
-﻿using Parent.Domain;
+﻿using Parent.Application.ViewModels;
+using Parent.Domain;
 
 namespace Parent.Application;
 
@@ -11,8 +12,22 @@ public class GetAllGuardians : IGetAllGuardians
         _guardianRepository = guardianRepository;
     }
     
-    public async Task<IEnumerable<Guardian>> HandleAsync()
+    public async Task<IEnumerable<GuardianViewModel>> HandleAsync()
     {
-        return await _guardianRepository.All();
+        var guardians = await _guardianRepository.All();
+        var viewModels = guardians.Select(x => new GuardianViewModel
+        {
+            GuardianId = x.Id,
+            FirstName = x.Name.FirstName,
+            LastName = x.Name.LastName,
+            Email = x.Email.Email,
+            Address1 = x.Address.Address1,
+            Address2 = x.Address.Address2,
+            City = x.Address.City,
+            State = x.Address.State,
+            Zip = x.Address.Zip,
+        });
+
+        return viewModels;
     }
 }

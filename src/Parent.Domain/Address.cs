@@ -9,6 +9,8 @@ namespace Parent.Domain
         public string City { get; }
         public string State { get; }
         public string Zip { get; }
+        
+        public Address() {}
 
         public Address(string address1, string address2, string city, string state, string zip)
         {

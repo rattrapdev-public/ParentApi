@@ -26,7 +26,7 @@ public class AllChildren : IAllChildren
                 GuardianId = child.GuardianIdentifier.Id,
                 FirstName = child.Name.FirstName,
                 LastName = child.Name.LastName,
-                Toys = child.ToyBox.Select(x => new ToyViewModel {Name = x.Name, Cost = x.Cost, Upc = x.Upc})
+                Toys = child.ToyBox.Select(x => new ToyViewModel {Name = x.Name, Upc = x.Upc})
             };
             
             childViewModels.Add(viewModel);

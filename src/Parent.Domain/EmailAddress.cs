@@ -5,6 +5,8 @@ namespace Parent.Domain;
 public record EmailAddress : ValueObject
 {
     public string Email { get; }
+    
+    public EmailAddress() {}
 
     public EmailAddress(string email)
     {
