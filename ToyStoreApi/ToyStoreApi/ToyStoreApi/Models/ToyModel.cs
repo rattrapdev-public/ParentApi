@@ -1,6 +1,6 @@
 ﻿namespace ToyStoreApi.Models;
 
-public class ToyViewModel
+public class ToyModel
 {
     public string UPC { get; set; }
     public decimal Cost { get; set; }

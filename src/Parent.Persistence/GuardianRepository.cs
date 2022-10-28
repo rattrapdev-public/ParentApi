@@ -26,6 +26,13 @@ public class GuardianRepository : IGuardianRepository
 
     public async Task Store(Guardian guardian)
     {
+        if (_context.Guardians.AsEnumerable().Any(x => x.Identifier.Id == guardian.Identifier.Id))
+        {
+            _context.Guardians.Update(guardian);
+
+            return;
+        }
+        
         await _context.Guardians.AddAsync(guardian);
     }
 

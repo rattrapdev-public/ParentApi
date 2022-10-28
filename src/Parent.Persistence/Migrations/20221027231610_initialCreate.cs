@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Parent.Persistence.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,18 +29,6 @@ namespace Parent.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Toys",
-                columns: table => new
-                {
-                    Upc = table.Column<string>(type: "TEXT", nullable: false),
-                    ChildId = table.Column<Guid>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Toys", x => x.Upc);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Children",
                 columns: table => new
                 {
@@ -61,20 +49,19 @@ namespace Parent.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Toy",
+                name: "ToyBox",
                 columns: table => new
                 {
-                    ChildIdentifier = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    Upc = table.Column<string>(type: "TEXT", nullable: false),
                     ToyName = table.Column<string>(type: "TEXT", nullable: false),
-                    Upc = table.Column<string>(type: "TEXT", nullable: false)
+                    ChildId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Toy", x => new { x.ChildIdentifier, x.Id });
+                    table.PrimaryKey("PK_ToyBox", x => x.Upc);
                     table.ForeignKey(
-                        name: "FK_Toy_Children_ChildIdentifier",
-                        column: x => x.ChildIdentifier,
+                        name: "FK_ToyBox_Children_ChildId",
+                        column: x => x.ChildId,
                         principalTable: "Children",
                         principalColumn: "ChildId",
                         onDelete: ReferentialAction.Cascade);
@@ -84,15 +71,17 @@ namespace Parent.Persistence.Migrations
                 name: "IX_Children_GuardianIdentifier",
                 table: "Children",
                 column: "GuardianIdentifier");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ToyBox_ChildId",
+                table: "ToyBox",
+                column: "ChildId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Toy");
-
-            migrationBuilder.DropTable(
-                name: "Toys");
+                name: "ToyBox");
 
             migrationBuilder.DropTable(
                 name: "Children");

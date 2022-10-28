@@ -14,7 +14,7 @@ public class ChildRepository : IChildRepository
     
     public async Task<Child> GetBy(ChildIdentifier childIdentifier)
     {
-        var child = await _parentDbContext.Children.FirstOrDefaultAsync(x => x.Identifier.Id == childIdentifier.Id);
+        var child = (await _parentDbContext.Children.ToListAsync()).FirstOrDefault(x => x.Identifier.Id == childIdentifier.Id);
 
         if (child == null)
         {
@@ -26,6 +26,13 @@ public class ChildRepository : IChildRepository
 
     public async Task Store(Child child)
     {
+        if (_parentDbContext.Children.ToList().Any(x => x.Identifier.Id == child.Identifier.Id))
+        {
+            _parentDbContext.Children.Update(child);
+
+            return;
+        }
+        
         await _parentDbContext.Children.AddAsync(child);
     }
 
@@ -39,6 +46,13 @@ public class ChildRepository : IChildRepository
     public async Task<IEnumerable<Child>> All()
     {
         var children = await _parentDbContext.Children.ToListAsync();
+
+        return children;
+    }
+
+    public async Task<IEnumerable<Child>> GetByOwnedToy(string upc)
+    {
+        var children = await _parentDbContext.Children.Where(x => x.ToyBox.Any(t => t.Upc == upc)).ToListAsync();
 
         return children;
     }

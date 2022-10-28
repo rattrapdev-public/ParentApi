@@ -6,4 +6,5 @@ public interface IChildRepository
     Task Store(Child child);
     Task<IEnumerable<Child>> GetBy(GuardianIdentifier guardianIdentifier);
     Task<IEnumerable<Child>> All();
+    Task<IEnumerable<Child>> GetByOwnedToy(string upc);
 }

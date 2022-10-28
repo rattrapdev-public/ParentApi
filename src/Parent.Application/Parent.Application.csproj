@@ -8,10 +8,16 @@
 
     <ItemGroup>
       <PackageReference Include="MediatR" Version="10.0.1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Parent.Domain\Parent.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="MessageModels" />
     </ItemGroup>
 
 </Project>

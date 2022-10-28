@@ -44,19 +44,6 @@ namespace Parent.Persistence.Migrations
                     b.ToTable("Guardians");
                 });
 
-            modelBuilder.Entity("Parent.Persistence.ToyDto", b =>
-                {
-                    b.Property<string>("Upc")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("ChildId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Upc");
-
-                    b.ToTable("Toys");
-                });
-
             modelBuilder.Entity("Parent.Domain.Child", b =>
                 {
                     b.HasOne("Parent.Domain.Guardian", null)
@@ -64,6 +51,30 @@ namespace Parent.Persistence.Migrations
                         .HasForeignKey("GuardianIdentifier")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.OwnsMany("Parent.Domain.Toy", "ToyBox", b1 =>
+                        {
+                            b1.Property<string>("Upc")
+                                .HasColumnType("TEXT")
+                                .HasColumnName("Upc");
+
+                            b1.Property<Guid>("ChildId")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Name")
+                                .IsRequired()
+                                .HasColumnType("TEXT")
+                                .HasColumnName("ToyName");
+
+                            b1.HasKey("Upc");
+
+                            b1.HasIndex("ChildId");
+
+                            b1.ToTable("ToyBox", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ChildId");
+                        });
 
                     b.OwnsOne("Parent.Domain.Name", "Name", b1 =>
                         {
@@ -83,33 +94,6 @@ namespace Parent.Persistence.Migrations
                             b1.HasKey("ChildIdentifier");
 
                             b1.ToTable("Children");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ChildIdentifier");
-                        });
-
-                    b.OwnsMany("Parent.Domain.Toy", "ToyBox", b1 =>
-                        {
-                            b1.Property<Guid>("ChildIdentifier")
-                                .HasColumnType("TEXT");
-
-                            b1.Property<int>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<string>("Name")
-                                .IsRequired()
-                                .HasColumnType("TEXT")
-                                .HasColumnName("ToyName");
-
-                            b1.Property<string>("Upc")
-                                .IsRequired()
-                                .HasColumnType("TEXT")
-                                .HasColumnName("Upc");
-
-                            b1.HasKey("ChildIdentifier", "Id");
-
-                            b1.ToTable("Toy");
 
                             b1.WithOwner()
                                 .HasForeignKey("ChildIdentifier");

@@ -22,6 +22,8 @@ builder.Services.AddScoped<IGetAllGuardians, GetAllGuardians>();
 builder.Services.AddScoped<IGetGuardianById, GetGuardianById>();
 builder.Services.AddScoped<IAllChildren, AllChildren>();
 builder.Services.AddScoped<ICreateChild, CreateChild>();
+builder.Services.AddScoped<IToyPurchased, ToyPurchased>();
+builder.Services.AddScoped<IToyNameUpdated, ToyNameUpdated>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -35,6 +37,8 @@ using (var scope = app.Services.CreateScope())
    var guardianDbContext = scope.ServiceProvider.GetRequiredService<ParentDbContext>();
    
    guardianDbContext.Database.Migrate();
+
+
 }
 
 if (app.Environment.IsDevelopment())

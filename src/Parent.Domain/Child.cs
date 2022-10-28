@@ -45,4 +45,9 @@ public class Child : IEntity
     {
         ToyBox = ToyBox.AddToy(toy);
     }
+
+    public void UpdateToy(Toy toy)
+    {
+        ToyBox = ToyBox.UpdateToys(toy);
+    }
 }

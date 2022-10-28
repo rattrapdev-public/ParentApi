@@ -7,7 +7,6 @@ public class ParentDbContext : DbContext
 {
     public DbSet<Guardian> Guardians { get; set; }
     public DbSet<Child> Children { get; set; }
-    public DbSet<ToyDto> Toys { get; set; }
 
     public ParentDbContext(DbContextOptions<ParentDbContext> options)
         : base(options)
@@ -53,6 +52,9 @@ public class ParentDbContext : DbContext
         });
         modelBuilder.Entity<Child>().OwnsMany(x => x.ToyBox, sb =>
         {
+            sb.WithOwner().HasForeignKey("ChildId");
+            sb.HasKey(t => t.Upc);
+            sb.ToTable("ToyBox");
             sb.Property(t => t.Name).HasColumnName("ToyName");
             sb.Property(t => t.Upc).HasColumnName("Upc");
         });

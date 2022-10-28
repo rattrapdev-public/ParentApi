@@ -16,4 +16,13 @@ public class ToyBox : ValueObjects<Toy>
         toyList.Add(toy);
         return new ToyBox(toyList);
     }
+
+    public ToyBox UpdateToys(Toy toy)
+    {
+        var toyList = new List<Toy>(_valueList);
+        var toyToRemove = toyList.FirstOrDefault(t => t.Upc == toy.Upc);
+        toyList.Remove(toyToRemove!);
+        toyList.Add(toy);
+        return new ToyBox(toyList);
+    }
 }
