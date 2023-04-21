@@ -27,8 +27,11 @@ public class Guardian : IEntity
     public Name Name { get; private set; }
     public EmailAddress Email { get; private set; }
     public Address Address { get; private set; }
-    
-    public Guardian() {}
+
+    public Guardian()
+    {
+        _domainEventList = new List<IDomainEvent>();
+    }
 
     public Guardian(GuardianIdentifier guardianIdentifier, Name name, EmailAddress email, Address address)
     {

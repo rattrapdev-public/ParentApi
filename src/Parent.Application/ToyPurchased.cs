@@ -6,10 +6,12 @@ namespace Parent.Application;
 public class ToyPurchased : IToyPurchased
 {
     private readonly IChildRepository _childRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public ToyPurchased(IChildRepository childRepository)
+    public ToyPurchased(IChildRepository childRepository, IUnitOfWork unitOfWork)
     {
         _childRepository = childRepository;
+        _unitOfWork = unitOfWork;
     }
     
     public async Task HandleAsync(PurchasedToyViewModel viewModel)
@@ -19,6 +21,7 @@ public class ToyPurchased : IToyPurchased
         var child = await _childRepository.GetBy(childIdentifier);
         child.AddToy(toyPurchased);
         await _childRepository.Store(child);
+        await _unitOfWork.Commit();
         var child2 = await _childRepository.GetBy(childIdentifier);
     }
 }

@@ -31,7 +31,7 @@ public class Child : IEntity
         _domainList = new List<IDomainEvent>();
     }
 
-    protected Child(ChildIdentifier childIdentifier, GuardianIdentifier guardianIdentifier, Name name, ToyBox toyBox)
+    private Child(ChildIdentifier childIdentifier, GuardianIdentifier guardianIdentifier, Name name, ToyBox toyBox)
     {
         Identifier = childIdentifier;
         GuardianIdentifier = guardianIdentifier;

@@ -64,8 +64,9 @@ public class ToyController : ControllerBase
             var toyToUpdate = await _toyDbContext.Toys.FirstAsync(x => x.UPC == upc);
 
             toyToUpdate.Name = toy.Name;
-            
-            _toyDbContext.Toys.Update(toy);
+
+            _toyDbContext.ChangeTracker.Clear();
+            _toyDbContext.Toys.Update(toyToUpdate);
         }
         else
         {

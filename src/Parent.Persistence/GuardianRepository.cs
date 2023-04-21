@@ -42,4 +42,12 @@ public class GuardianRepository : IGuardianRepository
 
         return guardians;
     }
+
+    public async Task<IEnumerable<Guardian>> Search(string searchText)
+    {
+        var guardians = await _context.Guardians.ToListAsync();
+        guardians = guardians.Where(x => x.Name.Contains(searchText) || x.Address.Contains(searchText)).ToList();
+
+        return guardians;
+    }
 }

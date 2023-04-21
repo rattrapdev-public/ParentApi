@@ -1,0 +1,968 @@
+{
+  "id" : 1,
+  "name" : "Security API",
+  "description" : "This is an implementation of Security API architecture showing how everything relates",
+  "lastModifiedDate" : "2023-04-21T19:51:18Z",
+  "lastModifiedAgent" : "structurizr-javascript",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlICJTZWN1cml0eSBBUEkiICJUaGlzIGlzIGFuIGltcGxlbWVudGF0aW9uIG9mIFNlY3VyaXR5IEFQSSBhcmNoaXRlY3R1cmUgc2hvd2luZyBob3cgZXZlcnl0aGluZyByZWxhdGVzIiB7CgogICAgbW9kZWwgewoKICAgICAgICBwYXJlbnQgPSBwZXJzb24gIlBhcmVudCIgIk1hbmFnZXMgQ2hpbGRyZW4gYW5kIGJ1eXMgVG95cyBmcm9tIHRoZSBUb3kgU3RvcmUiCgogICAgICAgIGNhdGFsb2dNYW5hZ2VyID0gcGVyc29uICJDYXRhbG9nIE1hbmFnZXIiICJNYW5hZ2VzIENoaWxkcmVuIGFuZCBidXlzIFRveXMgZnJvbSB0aGUgVG95IFN0b3JlIgoKICAgICAgICB0b3lTdG9yZSA9IHNvZnR3YXJlU3lzdGVtICJQYXJlbnQgVG95IFN0b3JlIiAiVG95IHN0b3JlIGZvciBwdXJjaGFzaW5nIHRveXMsIG1hbmFnaW5nIHRveSBib3ggYW5kIGNhdGFsb2cuIiB7CgogICAgICAgICAgICBtb2JpbGVTdG9yZUZyb250ID0gY29udGFpbmVyICJUb3kgU3RvcmUgTW9iaWxlIEFwcCIgIkFwcCB1c2VkIGZvciBwdXJjaGFzaW5nIHRveXMgb25saW5lIiAiTW9iaWxlIEFwcCIKCiAgICAgICAgICAgIGNhdGFsb2dXZWJBcHAgPSBjb250YWluZXIgIkNhdGFsb2cgTWFuYWdlbWVudCBTaXRlIiAiV2ViIHNpdGUgdXNlZCBmb3IgbWFuYWdpbmcgdG95IHN0b3JlIGNhdGFsb2cuIiAiQW5ndWxhciIgIldlYiBBcHAiCgogICAgICAgICAgICBmYW1pbHlXZWJBcHAgPSBjb250YWluZXIgIlBhcmVudCBGYW1pbHkgTWFuYWdlbWVudCBTaXRlIiAiU2l0ZSB1c2VkIGZvciBtYW5hZ2luZyB0b3kgYm94IGFuZCBmYW1pbHkiICJXZWIgQXBwIgoKICAgICAgICAgICAgcGFyZW50QXBpID0gY29udGFpbmVyICJQYXJlbnQgQVBJIiAiQVBJIHVzZWQgZm9yIG1hbmFnaW5nIGZhbWlseSBhbmQgc3RvcmluZyBwdXJjaGFzZWQgdG95cyB3aXRoaW4gdG95Ym94IiAiQXNwLk5FVCBDb3JlIiB7CiAgICAgICAgICAgICAgICBndWFyZGlhbkNvbnRyb2xsZXIgPSBjb21wb25lbnQgIkd1YXJkaWFuQ29udHJvbGxlciIgIk1hbmFnZSByZXF1ZXN0cyBmb3IgZ3VhcmRpYW4gb3BlcmF0aW9ucyBpbmNsdWRlIHVwc2VydCBhbmQgcmV0cmlldmFsIiAiQyMiCiAgICAgICAgICAgICAgICBndWFyZGlhblJlcG9zaXRvcnkgPSBjb21wb25lbnQgIkd1YXJkaWFuUmVwb3NpdG9yeSIgIlJlcG9zaXRvcnkgZm9yIG1hbmFnaW5nIGd1YXJkaWFuIGRhdGEiICJDIyIKICAgICAgICAgICAgICAgIGNoaWxkQ29udHJvbGxlciA9IGNvbXBvbmVudCAiQ2hpbGRDb250cm9sbGVyIiAiTWFuYWdlIHJlcXVlc3RzIGZvciBjaGlsZHJlbiBpbmNsdWRpbmcgYWRkaW5nIHRveXMiICJDIyIKICAgICAgICAgICAgICAgIGNoaWxkUmVwb3NpdG9yeSA9IGNvbXBvbmVudCAiQ2hpbGRSZXBvc2l0b3J5IiAiUmVwb3NpdG9yeSBmb3IgbWFuYWdpbmcgY2hpbGQgZGF0YSIgIkMjIgogICAgICAgICAgICB9CgogICAgICAgICAgICB0b3lTdG9yZUFwaSA9IGNvbnRhaW5lciAiVG95IFN0b3JlIEFQSSIgIkFQSSB1c2VkIGZvciBwdXJjaGFzaW5nIHRveXMiICJBc3AuTkVUIENvcmUiIHsKICAgICAgICAgICAgICAgIHB1cmNoYXNlQ29udHJvbGxlciA9IGNvbXBvbmVudCAiUHVyY2hhc2VDb250cm9sbGVyIiAiTWFuYWdlIHB1cmNoYXNlIHJlcXVlc3RzIG1hZGUgdG8gdGhlIHRveSBzdG9yZSIgIkMjIgogICAgICAgICAgICAgICAgZXZlbnRQdWJsaXNoZXIgPSBjb21wb25lbnQgIkV2ZW50UHVibGlzaGVyIiAiUHVibGlzaGVyIGZvciBzZW5kaW5nIFRveVByY2hhc2VkIG1lc3NhZ2UuIiAiQyMiCiAgICAgICAgICAgICAgICBwYXltZW50U2VydmljZSA9IGNvbXBvbmVudCAiUGF5bWVudFNlcnZpY2UiICJTZXJ2aWNlIGZvciBwcm9jZXNzaW5nIHBheW1lbnQgaW5mb3JtYXRpb24gd2l0aCB0aGUgUGF5bWVudCBQcm9jZXNzb3IiICJDIyIKICAgICAgICAgICAgICAgIHB1cmNoYXNlUmVwb3NpdG9yeSA9IGNvbXBvbmVudCAiUHVyY2hhc2VSZXBvc2l0b3J5IiAiUmVwb3NpdG9yeSBmb3Igc3RvcmluZyBwdXJjaGFzZSBpbmZvcm1hdGlvbiIgIkMjIgogICAgICAgICAgICB9CgogICAgICAgICAgICB0b3lDYXRhbG9nQXBpID0gY29udGFpbmVyICJUb3kgQ2F0YWxvZyBBUEkiICJBUEkgdXNlZCBmb3IgbWFuYWdpbmcgY2F0YWxvZyIgIkFzcC5ORVQgQ29yZSIgewogICAgICAgICAgICAgICAgdG95Q2F0YWxvZ0NvbnRyb2xsZXIgPSBjb21wb25lbnQgIlRveUNhdGFsb2dDb250cm9sbGVyIiAiQ29udHJvbGxlciB1c2VkIHRvIG1hbmFnZSB0aGUgdG95IGNhdGFsb2ciICJDIyIKICAgICAgICAgICAgICAgIHRveUNhdGFsb2dSZXBvc2l0b3J5ID0gY29tcG9uZW50ICJUb3lDYXRhbG9nUmVwb3NpdG9yeSIgIlJlcG9zaXRvcnkgZm9yIHN0b3JpbmcgdGhlIFRveUNhdGFsb2ciICJDIyIKICAgICAgICAgICAgfQoKICAgICAgICAgICAgc3FsU2VydmVyID0gY29udGFpbmVyICJTcWwgU2VydmVyIERhdGFiYXNlIiAiRGF0YWJhc2UgdXNlZCBmb3Igc3RvcmluZyBwYXJlbnQsIGNoaWxkLCB0b3lib3gsIHB1cmNoYXNlcyBhbmQgY2F0YWxvZyBpbmZvcm1hdGlvbiIgIlNxbCBTZXJ2ZXIiICJEYXRhYmFzZSIKCiAgICAgICAgICAgIHBhcmVudFN1YnNjcmliZXIgPSBjb250YWluZXIgIlBhcmVudCBTdWJzY3JpYmVyIiAiQXp1cmUgZnVuY3Rpb24gc3Vic2NyaWJlcyB0byBBenVyZSBNZXNzYWdlIEJ1cyBhbmQgcHJvY2Vzc2VzIG1lc3NhZ2VzIGJhY2sgdG8gQVBJIiAiQXNwLk5FVCBDb3JlIgoKICAgICAgICB9CgogICAgICAgICMgRXh0ZXJuYWwgU2VydmljZQoKICAgICAgICBzaGlwcGluZ1N5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICJTaGlwcGluZyBTeXN0ZW0iICJVc2VkIGZvciBzaGlwcGluZyBhbmQgdHJhY2tpbmcgc2hpcG1lbnRzIiAiRXh0ZXJuYWwgU2VydmljZSIKCiAgICAgICAgcGF5bWVudFByb2Nlc3NvciA9IHNvZnR3YXJlU3lzdGVtICJQYXltZW50IFByb2Nlc3NvciIgIlVzZWQgZm9yIHByb2Nlc3NpbmcgY3JlZGl0IGNhcmQgdHJhbnNhdGlvbnMiICJFeHRlcm5hbCBTZXJ2aWNlIgoKICAgICAgICBhenVyZU1lc3NhZ2VCdXMgPSBzb2Z0d2FyZVN5c3RlbSAiQXp1cmUgTWVzc2FnZSBCdXMiICJVc2VkIGZvciByZWNlaXZpbmcgbWVzc2FnZXMgZnJvbSBhcGlzIGFuZCBwdWJsaXNoaW5nIHRoZW0gdG8gdGhlIHN1YnNjcmliZXIiICJFeHRlcm5hbCBTZXJ2aWNlIgoKICAgICAgICAjIFJlbGF0aW9ucwogICAgICAgIHBhcmVudCAtPiBtb2JpbGVTdG9yZUZyb250ICJQdXJjaGFzZXMgdG95cyIKICAgICAgICAKICAgICAgICBwYXJlbnQgLT4gZmFtaWx5V2ViQXBwICJNYW5hZ2VzIGZhbWlseSIKCiAgICAgICAgY2F0YWxvZ01hbmFnZXIgLT4gY2F0YWxvZ1dlYkFwcCAiTWFuYWdlcyB0aGUgdG95cyBhdmFpbGFibGUgaW4gdGhlIHRveSBzdG9yZSIKCiAgICAgICAgbW9iaWxlU3RvcmVGcm9udCAtPiB0b3lDYXRhbG9nQ29udHJvbGxlciAiSFRUUCA6IEpTT04iICJSZWFkIHRveSBjYXRhbG9nIgoKICAgICAgICBtb2JpbGVTdG9yZUZyb250IC0+IHB1cmNoYXNlQ29udHJvbGxlciAiSFRUUCA6IEpTT04iICJQdXJjaGFzZSB0b3kiCgogICAgICAgIG1vYmlsZVN0b3JlRnJvbnQgLT4gZ3VhcmRpYW5Db250cm9sbGVyICJIVFRQIDogSlNPTiIgIkdldCBwYXJlbnQgaW5mb3JtYXRpb24gZm9yIHB1cmNoYXNpbmciCgogICAgICAgIG1vYmlsZVN0b3JlRnJvbnQgLT4gY2hpbGRDb250cm9sbGVyICJIVFRQIDogSlNPTiIgIkdldCBjaGlsZCBpbmZvcm1hdGlvbiBmb3Igc3RvcmluZyB0byB0b3lib3giCgogICAgICAgIGZhbWlseVdlYkFwcCAtPiBndWFyZGlhbkNvbnRyb2xsZXIgIkhUVFAgOiBKU09OIiAiUmVhZC93cml0ZSBwYXJlbnQgaW5mb3JtYXRpb24iCgogICAgICAgIGZhbWlseVdlYkFwcCAtPiBjaGlsZENvbnRyb2xsZXIgIkhUVFAgOiBKU09OIiAiUmVhZC93cml0ZSBjaGlsZCBpbmZvcm1hdGlvbiBhbmQgYWRkIHRveXMiCgogICAgICAgIGNhdGFsb2dXZWJBcHAgLT4gdG95Q2F0YWxvZ0NvbnRyb2xsZXIgIkhUVFAgOiBKU09OIiAiUmVhZC93cml0ZSB0b3kgY2F0YWxvZyIKCiAgICAgICAgdG95U3RvcmVBcGkgLT4gdG95Q2F0YWxvZ0NvbnRyb2xsZXIgIkhUVFAgOiBKU09OIiAiUmVhZCBhbmQgdmFsaWRhdGUgdG95IHB1cmNoYXNlIgoKICAgICAgICB0b3lTdG9yZUFwaSAtPiBzaGlwcGluZ1N5c3RlbSAiU2VuZCB0b3lzIHRvIGNoaWxkcmVuIgogICAgICAgIAogICAgICAgIHBheW1lbnRTZXJ2aWNlIC0+IHBheW1lbnRQcm9jZXNzb3IgIlByb2Nlc3NlcyBwYXltZW50cyB3aXRoIFByb2Nlc3NvciIKICAgICAgICAKICAgICAgICBldmVudFB1Ymxpc2hlciAtPiBhenVyZU1lc3NhZ2VCdXMgIlNlbmQgVG95UHVyY2hhc2VkIG1lc3NhZ2UiCgogICAgICAgIHB1cmNoYXNlUmVwb3NpdG9yeSAtPiBzcWxTZXJ2ZXIgIlN0b3JlIHRveSBzdG9yZSBwdXJjaGFzZXMiCgogICAgICAgIHRveUNhdGFsb2dSZXBvc2l0b3J5IC0+IHNxbFNlcnZlciAiU3RvcnkgdG95IGNhdGFsb2ciCgogICAgICAgIGd1YXJkaWFuUmVwb3NpdG9yeSAtPiBzcWxTZXJ2ZXIgIlN0b3JlIHBhcmVudCBpbmZvcm1hdGlvbiIKCiAgICAgICAgY2hpbGRSZXBvc2l0b3J5IC0+IHNxbFNlcnZlciAiU3RvcmUgY2hpbGQgYW5kIHRveWJveCBpbmZvcm1hdGlvbiIKCiAgICAgICAgYXp1cmVNZXNzYWdlQnVzIC0+IHBhcmVudFN1YnNjcmliZXIgIlNlbmQgbWVzc2FnZXMgdG8gc3Vic2NyaWJlciIKCiAgICAgICAgcGFyZW50U3Vic2NyaWJlciAtPiBjaGlsZENvbnRyb2xsZXIgIkhUVFAgOiBKU09OIiAiUG9zdCBwdXJjaGFzZWQgdG95IGluZm9ybWF0aW9uIGZvciBhZGRpdGlvbiB0byB0b3kgYm94IgoKICAgICAgICAjIENvbXBvbmVudCByZWxhdGlvbnMKCiAgICAgICAgY2hpbGRDb250cm9sbGVyIC0+IGNoaWxkUmVwb3NpdG9yeSAiR2V0IGFuZCBzdG9yZSBjaGlsZCBkYXRhIgoKICAgICAgICBndWFyZGlhbkNvbnRyb2xsZXIgLT4gZ3VhcmRpYW5SZXBvc2l0b3J5ICJHZXQgYW5kIHN0b3JlIHBhcmVudCBkYXRhIgoKICAgICAgICB0b3lDYXRhbG9nQ29udHJvbGxlciAtPiB0b3lDYXRhbG9nUmVwb3NpdG9yeSAiR2V0IGFuZCBzdG9yZSB0b3kgY2F0YWxvZyIKCiAgICAgICAgcHVyY2hhc2VDb250cm9sbGVyIC0+IHB1cmNoYXNlUmVwb3NpdG9yeSAiR2V0IGFuZCBzdG9yZSB0b3kgcHVyY2hhc2VzIgoKICAgICAgICBwdXJjaGFzZUNvbnRyb2xsZXIgLT4gcGF5bWVudFNlcnZpY2UgIlNlbmQgcGF5bWVudCBpbmZvcm1hdGlvbiBmb3IgcHJvY2Vzc2luZyIKCiAgICAgICAgcHVyY2hhc2VDb250cm9sbGVyIC0+IGV2ZW50UHVibGlzaGVyICJTZW5kIHRveSBwdXJjaGFzZSBkYXRhIHRvIGJlIHB1Ymxpc2hlZCIKICAgIH0KCiAgICB2aWV3cyB7CgogICAgICAgIHN5c3RlbUNvbnRleHQgdG95U3RvcmUgInRveVN0b3JlIiB7CiAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgdG95U3RvcmUgInRveVN0b3JlQ29udGFpbmVyIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvTGF5b3V0CiAgICAgICAgfQoKICAgICAgICBjb21wb25lbnQgcGFyZW50QXBpICJQYXJlbnRBcGkiICJQYXJlbnQgQVBJIENvbXBvbmVudCBEaWFncmFtIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvTGF5b3V0CiAgICAgICAgfQoKICAgICAgICBjb21wb25lbnQgdG95Q2F0YWxvZ0FwaSAiVG95Q2F0YWxvZ0FwaSIgIlRveSBDYXRhbG9nIEFQSSBDb21wb25lbnQgRGlhZ3JhbSIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgIH0KCiAgICAgICAgY29tcG9uZW50IHRveVN0b3JlQXBpICJUb3lTdG9yZUFwaSIgIlRveSBTdG9yZSBBUEkgQ29tcG9uZW50IERpYWdyYW0iIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICB9CgogICAgICAgIHRoZW1lIGRlZmF1bHQKCiAgICAgICAgc3R5bGVzIHsKCiAgICAgICAgICAgIGVsZW1lbnQgIk1vYmlsZSBBcHAiIHsKICAgICAgICAgICAgICAgIHNoYXBlIE1vYmlsZURldmljZUxhbmRzY2FwZQogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICBlbGVtZW50ICJXZWIgQXBwIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBXZWJCcm93c2VyCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGVsZW1lbnQgIkV4dGVybmFsIFNlcnZpY2UiIHsKICAgICAgICAgICAgICAgIHNoYXBlIENvbXBvbmVudAogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjOTk5OTk5CiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlInsKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM5OTk5OTkKICAgICAgICAgICAgfQoKICAgICAgICB9CgogICAgfQoKfQo="
+  },
+  "configuration" : { },
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "tags" : "Element,Person",
+      "properties" : {
+        "structurizr.dsl.identifier" : "parent"
+      },
+      "name" : "Parent",
+      "description" : "Manages Children and buys Toys from the Toy Store",
+      "relationships" : [ {
+        "id" : "26",
+        "sourceId" : "1",
+        "destinationId" : "3",
+        "description" : "Purchases toys",
+        "linkedRelationshipId" : "25"
+      }, {
+        "id" : "25",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "4",
+        "description" : "Purchases toys"
+      }, {
+        "id" : "27",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "6",
+        "description" : "Manages family"
+      } ],
+      "location" : "Unspecified"
+    }, {
+      "id" : "2",
+      "tags" : "Element,Person",
+      "properties" : {
+        "structurizr.dsl.identifier" : "catalogmanager"
+      },
+      "name" : "Catalog Manager",
+      "description" : "Manages Children and buys Toys from the Toy Store",
+      "relationships" : [ {
+        "id" : "28",
+        "tags" : "Relationship",
+        "sourceId" : "2",
+        "destinationId" : "5",
+        "description" : "Manages the toys available in the toy store"
+      }, {
+        "id" : "29",
+        "sourceId" : "2",
+        "destinationId" : "3",
+        "description" : "Manages the toys available in the toy store",
+        "linkedRelationshipId" : "28"
+      } ],
+      "location" : "Unspecified"
+    } ],
+    "softwareSystems" : [ {
+      "id" : "3",
+      "tags" : "Element,Software System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "toystore"
+      },
+      "name" : "Parent Toy Store",
+      "description" : "Toy store for purchasing toys, managing toy box and catalog.",
+      "relationships" : [ {
+        "id" : "45",
+        "sourceId" : "3",
+        "destinationId" : "22",
+        "description" : "Send toys to children",
+        "linkedRelationshipId" : "44"
+      }, {
+        "id" : "51",
+        "sourceId" : "3",
+        "destinationId" : "24",
+        "description" : "Send ToyPurchased message",
+        "linkedRelationshipId" : "49"
+      }, {
+        "id" : "48",
+        "sourceId" : "3",
+        "destinationId" : "23",
+        "description" : "Processes payments with Processor",
+        "linkedRelationshipId" : "46"
+      } ],
+      "location" : "Unspecified",
+      "containers" : [ {
+        "id" : "6",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "familywebapp"
+        },
+        "name" : "Parent Family Management Site",
+        "description" : "Site used for managing toy box and family",
+        "relationships" : [ {
+          "id" : "39",
+          "tags" : "Relationship",
+          "sourceId" : "6",
+          "destinationId" : "10",
+          "description" : "HTTP : JSON",
+          "technology" : "Read/write child information and add toys"
+        }, {
+          "id" : "38",
+          "sourceId" : "6",
+          "destinationId" : "7",
+          "description" : "HTTP : JSON",
+          "technology" : "Read/write parent information",
+          "linkedRelationshipId" : "37"
+        }, {
+          "id" : "37",
+          "tags" : "Relationship",
+          "sourceId" : "6",
+          "destinationId" : "8",
+          "description" : "HTTP : JSON",
+          "technology" : "Read/write parent information"
+        } ],
+        "technology" : "Web App",
+        "documentation" : { }
+      }, {
+        "id" : "20",
+        "tags" : "Element,Container,Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "sqlserver"
+        },
+        "name" : "Sql Server Database",
+        "description" : "Database used for storing parent, child, toybox, purchases and catalog information",
+        "technology" : "Sql Server",
+        "documentation" : { }
+      }, {
+        "id" : "4",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "mobilestorefront"
+        },
+        "name" : "Toy Store Mobile App",
+        "description" : "App used for purchasing toys online",
+        "relationships" : [ {
+          "id" : "34",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "8",
+          "description" : "HTTP : JSON",
+          "technology" : "Get parent information for purchasing"
+        }, {
+          "id" : "30",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "18",
+          "description" : "HTTP : JSON",
+          "technology" : "Read toy catalog"
+        }, {
+          "id" : "31",
+          "sourceId" : "4",
+          "destinationId" : "17",
+          "description" : "HTTP : JSON",
+          "technology" : "Read toy catalog",
+          "linkedRelationshipId" : "30"
+        }, {
+          "id" : "36",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "10",
+          "description" : "HTTP : JSON",
+          "technology" : "Get child information for storing to toybox"
+        }, {
+          "id" : "33",
+          "sourceId" : "4",
+          "destinationId" : "12",
+          "description" : "HTTP : JSON",
+          "technology" : "Purchase toy",
+          "linkedRelationshipId" : "32"
+        }, {
+          "id" : "35",
+          "sourceId" : "4",
+          "destinationId" : "7",
+          "description" : "HTTP : JSON",
+          "technology" : "Get parent information for purchasing",
+          "linkedRelationshipId" : "34"
+        }, {
+          "id" : "32",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "13",
+          "description" : "HTTP : JSON",
+          "technology" : "Purchase toy"
+        } ],
+        "technology" : "Mobile App",
+        "documentation" : { }
+      }, {
+        "id" : "5",
+        "tags" : "Element,Container,Web App",
+        "properties" : {
+          "structurizr.dsl.identifier" : "catalogwebapp"
+        },
+        "name" : "Catalog Management Site",
+        "description" : "Web site used for managing toy store catalog.",
+        "relationships" : [ {
+          "id" : "40",
+          "tags" : "Relationship",
+          "sourceId" : "5",
+          "destinationId" : "18",
+          "description" : "HTTP : JSON",
+          "technology" : "Read/write toy catalog"
+        }, {
+          "id" : "41",
+          "sourceId" : "5",
+          "destinationId" : "17",
+          "description" : "HTTP : JSON",
+          "technology" : "Read/write toy catalog",
+          "linkedRelationshipId" : "40"
+        } ],
+        "technology" : "Angular",
+        "documentation" : { }
+      }, {
+        "id" : "17",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "toycatalogapi"
+        },
+        "name" : "Toy Catalog API",
+        "description" : "API used for managing catalog",
+        "relationships" : [ {
+          "id" : "55",
+          "sourceId" : "17",
+          "destinationId" : "20",
+          "description" : "Story toy catalog",
+          "linkedRelationshipId" : "54"
+        } ],
+        "technology" : "Asp.NET Core",
+        "components" : [ {
+          "id" : "18",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "toycatalogcontroller"
+          },
+          "name" : "ToyCatalogController",
+          "description" : "Controller used to manage the toy catalog",
+          "relationships" : [ {
+            "id" : "65",
+            "tags" : "Relationship",
+            "sourceId" : "18",
+            "destinationId" : "19",
+            "description" : "Get and store toy catalog"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        }, {
+          "id" : "19",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "toycatalogrepository"
+          },
+          "name" : "ToyCatalogRepository",
+          "description" : "Repository for storing the ToyCatalog",
+          "relationships" : [ {
+            "id" : "54",
+            "tags" : "Relationship",
+            "sourceId" : "19",
+            "destinationId" : "20",
+            "description" : "Story toy catalog"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        } ],
+        "documentation" : { }
+      }, {
+        "id" : "12",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "toystoreapi"
+        },
+        "name" : "Toy Store API",
+        "description" : "API used for purchasing toys",
+        "relationships" : [ {
+          "id" : "43",
+          "sourceId" : "12",
+          "destinationId" : "17",
+          "description" : "HTTP : JSON",
+          "technology" : "Read and validate toy purchase",
+          "linkedRelationshipId" : "42"
+        }, {
+          "id" : "47",
+          "sourceId" : "12",
+          "destinationId" : "23",
+          "description" : "Processes payments with Processor",
+          "linkedRelationshipId" : "46"
+        }, {
+          "id" : "44",
+          "tags" : "Relationship",
+          "sourceId" : "12",
+          "destinationId" : "22",
+          "description" : "Send toys to children"
+        }, {
+          "id" : "42",
+          "tags" : "Relationship",
+          "sourceId" : "12",
+          "destinationId" : "18",
+          "description" : "HTTP : JSON",
+          "technology" : "Read and validate toy purchase"
+        }, {
+          "id" : "53",
+          "sourceId" : "12",
+          "destinationId" : "20",
+          "description" : "Store toy store purchases",
+          "linkedRelationshipId" : "52"
+        }, {
+          "id" : "50",
+          "sourceId" : "12",
+          "destinationId" : "24",
+          "description" : "Send ToyPurchased message",
+          "linkedRelationshipId" : "49"
+        } ],
+        "technology" : "Asp.NET Core",
+        "components" : [ {
+          "id" : "15",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "paymentservice"
+          },
+          "name" : "PaymentService",
+          "description" : "Service for processing payment information with the Payment Processor",
+          "relationships" : [ {
+            "id" : "46",
+            "tags" : "Relationship",
+            "sourceId" : "15",
+            "destinationId" : "23",
+            "description" : "Processes payments with Processor"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        }, {
+          "id" : "14",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "eventpublisher"
+          },
+          "name" : "EventPublisher",
+          "description" : "Publisher for sending ToyPrchased message.",
+          "relationships" : [ {
+            "id" : "49",
+            "tags" : "Relationship",
+            "sourceId" : "14",
+            "destinationId" : "24",
+            "description" : "Send ToyPurchased message"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        }, {
+          "id" : "13",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "purchasecontroller"
+          },
+          "name" : "PurchaseController",
+          "description" : "Manage purchase requests made to the toy store",
+          "relationships" : [ {
+            "id" : "67",
+            "tags" : "Relationship",
+            "sourceId" : "13",
+            "destinationId" : "15",
+            "description" : "Send payment information for processing"
+          }, {
+            "id" : "66",
+            "tags" : "Relationship",
+            "sourceId" : "13",
+            "destinationId" : "16",
+            "description" : "Get and store toy purchases"
+          }, {
+            "id" : "68",
+            "tags" : "Relationship",
+            "sourceId" : "13",
+            "destinationId" : "14",
+            "description" : "Send toy purchase data to be published"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        }, {
+          "id" : "16",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "purchaserepository"
+          },
+          "name" : "PurchaseRepository",
+          "description" : "Repository for storing purchase information",
+          "relationships" : [ {
+            "id" : "52",
+            "tags" : "Relationship",
+            "sourceId" : "16",
+            "destinationId" : "20",
+            "description" : "Store toy store purchases"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        } ],
+        "documentation" : { }
+      }, {
+        "id" : "7",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "parentapi"
+        },
+        "name" : "Parent API",
+        "description" : "API used for managing family and storing purchased toys within toybox",
+        "relationships" : [ {
+          "id" : "57",
+          "sourceId" : "7",
+          "destinationId" : "20",
+          "description" : "Store parent information",
+          "linkedRelationshipId" : "56"
+        } ],
+        "technology" : "Asp.NET Core",
+        "components" : [ {
+          "id" : "11",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "childrepository"
+          },
+          "name" : "ChildRepository",
+          "description" : "Repository for managing child data",
+          "relationships" : [ {
+            "id" : "58",
+            "tags" : "Relationship",
+            "sourceId" : "11",
+            "destinationId" : "20",
+            "description" : "Store child and toybox information"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        }, {
+          "id" : "10",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "childcontroller"
+          },
+          "name" : "ChildController",
+          "description" : "Manage requests for children including adding toys",
+          "relationships" : [ {
+            "id" : "63",
+            "tags" : "Relationship",
+            "sourceId" : "10",
+            "destinationId" : "11",
+            "description" : "Get and store child data"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        }, {
+          "id" : "8",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "guardiancontroller"
+          },
+          "name" : "GuardianController",
+          "description" : "Manage requests for guardian operations include upsert and retrieval",
+          "relationships" : [ {
+            "id" : "64",
+            "tags" : "Relationship",
+            "sourceId" : "8",
+            "destinationId" : "9",
+            "description" : "Get and store parent data"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        }, {
+          "id" : "9",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "guardianrepository"
+          },
+          "name" : "GuardianRepository",
+          "description" : "Repository for managing guardian data",
+          "relationships" : [ {
+            "id" : "56",
+            "tags" : "Relationship",
+            "sourceId" : "9",
+            "destinationId" : "20",
+            "description" : "Store parent information"
+          } ],
+          "technology" : "C#",
+          "documentation" : { }
+        } ],
+        "documentation" : { }
+      }, {
+        "id" : "21",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "parentsubscriber"
+        },
+        "name" : "Parent Subscriber",
+        "description" : "Azure function subscribes to Azure Message Bus and processes messages back to API",
+        "relationships" : [ {
+          "id" : "61",
+          "tags" : "Relationship",
+          "sourceId" : "21",
+          "destinationId" : "10",
+          "description" : "HTTP : JSON",
+          "technology" : "Post purchased toy information for addition to toy box"
+        }, {
+          "id" : "62",
+          "sourceId" : "21",
+          "destinationId" : "7",
+          "description" : "HTTP : JSON",
+          "technology" : "Post purchased toy information for addition to toy box",
+          "linkedRelationshipId" : "61"
+        } ],
+        "technology" : "Asp.NET Core",
+        "documentation" : { }
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "22",
+      "tags" : "Element,Software System,External Service",
+      "properties" : {
+        "structurizr.dsl.identifier" : "shippingsystem"
+      },
+      "name" : "Shipping System",
+      "description" : "Used for shipping and tracking shipments",
+      "location" : "Unspecified",
+      "documentation" : { }
+    }, {
+      "id" : "24",
+      "tags" : "Element,Software System,External Service",
+      "properties" : {
+        "structurizr.dsl.identifier" : "azuremessagebus"
+      },
+      "name" : "Azure Message Bus",
+      "description" : "Used for receiving messages from apis and publishing them to the subscriber",
+      "relationships" : [ {
+        "id" : "60",
+        "sourceId" : "24",
+        "destinationId" : "3",
+        "description" : "Send messages to subscriber",
+        "linkedRelationshipId" : "59"
+      }, {
+        "id" : "59",
+        "tags" : "Relationship",
+        "sourceId" : "24",
+        "destinationId" : "21",
+        "description" : "Send messages to subscriber"
+      } ],
+      "location" : "Unspecified",
+      "documentation" : { }
+    }, {
+      "id" : "23",
+      "tags" : "Element,Software System,External Service",
+      "properties" : {
+        "structurizr.dsl.identifier" : "paymentprocessor"
+      },
+      "name" : "Payment Processor",
+      "description" : "Used for processing credit card transations",
+      "location" : "Unspecified",
+      "documentation" : { }
+    } ]
+  },
+  "documentation" : { },
+  "views" : {
+    "systemContextViews" : [ {
+      "key" : "toyStore",
+      "order" : 1,
+      "softwareSystemId" : "3",
+      "dimensions" : {
+        "width" : 2350,
+        "height" : 2000
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "22",
+        "x" : 949,
+        "y" : 1500
+      }, {
+        "id" : "1",
+        "x" : 249,
+        "y" : 200
+      }, {
+        "id" : "23",
+        "x" : 1699,
+        "y" : 1500
+      }, {
+        "id" : "2",
+        "x" : 949,
+        "y" : 200
+      }, {
+        "id" : "24",
+        "x" : 199,
+        "y" : 1500
+      }, {
+        "id" : "3",
+        "x" : 574,
+        "y" : 900
+      } ],
+      "relationships" : [ {
+        "id" : "29"
+      }, {
+        "id" : "26"
+      }, {
+        "id" : "60",
+        "vertices" : [ {
+          "x" : 738,
+          "y" : 1429
+        } ]
+      }, {
+        "id" : "51",
+        "vertices" : [ {
+          "x" : 484,
+          "y" : 1270
+        } ]
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "48"
+      } ]
+    } ],
+    "containerViews" : [ {
+      "key" : "toyStoreContainer",
+      "order" : 2,
+      "softwareSystemId" : "3",
+      "paperSize" : "A2_Landscape",
+      "dimensions" : {
+        "width" : 5441,
+        "height" : 3420
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "22",
+        "x" : 3283,
+        "y" : 2208
+      }, {
+        "id" : "12",
+        "x" : 2625,
+        "y" : 1608
+      }, {
+        "id" : "23",
+        "x" : 4033,
+        "y" : 2208
+      }, {
+        "id" : "24",
+        "x" : 4783,
+        "y" : 2208
+      }, {
+        "id" : "17",
+        "x" : 1346,
+        "y" : 2208
+      }, {
+        "id" : "1",
+        "x" : 1525,
+        "y" : 208
+      }, {
+        "id" : "2",
+        "x" : 208,
+        "y" : 908
+      }, {
+        "id" : "4",
+        "x" : 1125,
+        "y" : 958
+      }, {
+        "id" : "5",
+        "x" : 817,
+        "y" : 1608
+      }, {
+        "id" : "6",
+        "x" : 1875,
+        "y" : 958
+      }, {
+        "id" : "7",
+        "x" : 1875,
+        "y" : 1608
+      }, {
+        "id" : "20",
+        "x" : 1875,
+        "y" : 2808
+      }, {
+        "id" : "21",
+        "x" : 2625,
+        "y" : 958
+      } ],
+      "relationships" : [ {
+        "id" : "50",
+        "vertices" : [ {
+          "x" : 4633,
+          "y" : 2208
+        } ]
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "62"
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "28"
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "25"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "33",
+        "vertices" : [ {
+          "x" : 1725,
+          "y" : 1308
+        } ]
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "55"
+      }, {
+        "id" : "57"
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "59"
+      }, {
+        "id" : "38"
+      } ]
+    } ],
+    "componentViews" : [ {
+      "key" : "ToyStoreApi",
+      "order" : 5,
+      "description" : "Toy Store API Component Diagram",
+      "dimensions" : {
+        "width" : 2390,
+        "height" : 2500
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "containerId" : "12",
+      "externalContainerBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "23",
+        "x" : 969,
+        "y" : 1999
+      }, {
+        "id" : "13",
+        "x" : 969,
+        "y" : 799
+      }, {
+        "id" : "24",
+        "x" : 219,
+        "y" : 1999
+      }, {
+        "id" : "14",
+        "x" : 219,
+        "y" : 1399
+      }, {
+        "id" : "15",
+        "x" : 969,
+        "y" : 1399
+      }, {
+        "id" : "4",
+        "x" : 969,
+        "y" : 199
+      }, {
+        "id" : "16",
+        "x" : 1719,
+        "y" : 1399
+      }, {
+        "id" : "20",
+        "x" : 1719,
+        "y" : 1999
+      } ],
+      "relationships" : [ {
+        "id" : "52"
+      }, {
+        "id" : "67"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "66"
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "68"
+      }, {
+        "id" : "49"
+      } ]
+    }, {
+      "key" : "ParentApi",
+      "order" : 3,
+      "description" : "Parent API Component Diagram",
+      "paperSize" : "A3_Portrait",
+      "dimensions" : {
+        "width" : 2504,
+        "height" : 2516
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "containerId" : "7",
+      "externalContainerBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 1079,
+        "y" : 1408
+      }, {
+        "id" : "4",
+        "x" : 329,
+        "y" : 208
+      }, {
+        "id" : "6",
+        "x" : 1079,
+        "y" : 208
+      }, {
+        "id" : "8",
+        "x" : 329,
+        "y" : 808
+      }, {
+        "id" : "9",
+        "x" : 329,
+        "y" : 1408
+      }, {
+        "id" : "20",
+        "x" : 704,
+        "y" : 2008
+      }, {
+        "id" : "10",
+        "x" : 1079,
+        "y" : 808
+      }, {
+        "id" : "21",
+        "x" : 1829,
+        "y" : 208
+      } ],
+      "relationships" : [ {
+        "id" : "61"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "64"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "58"
+      }, {
+        "id" : "39"
+      } ]
+    }, {
+      "key" : "ToyCatalogApi",
+      "order" : 4,
+      "description" : "Toy Catalog API Component Diagram",
+      "paperSize" : "A4_Portrait",
+      "dimensions" : {
+        "width" : 1766,
+        "height" : 3116
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "containerId" : "17",
+      "externalContainerBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "12",
+        "x" : 1108,
+        "y" : 808
+      }, {
+        "id" : "4",
+        "x" : 392,
+        "y" : 208
+      }, {
+        "id" : "5",
+        "x" : 358,
+        "y" : 808
+      }, {
+        "id" : "18",
+        "x" : 375,
+        "y" : 1408
+      }, {
+        "id" : "19",
+        "x" : 375,
+        "y" : 2008
+      }, {
+        "id" : "20",
+        "x" : 729,
+        "y" : 2608
+      } ],
+      "relationships" : [ {
+        "id" : "40"
+      }, {
+        "id" : "65"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "54"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "30",
+        "vertices" : [ {
+          "x" : 208,
+          "y" : 808
+        }, {
+          "x" : 208,
+          "y" : 1108
+        } ]
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "styles" : {
+        "elements" : [ {
+          "tag" : "Mobile App",
+          "shape" : "MobileDeviceLandscape"
+        }, {
+          "tag" : "Web App",
+          "shape" : "WebBrowser"
+        }, {
+          "tag" : "External Service",
+          "background" : "#999999",
+          "shape" : "Component"
+        }, {
+          "tag" : "Database",
+          "background" : "#999999",
+          "shape" : "Cylinder"
+        } ]
+      },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
+      "terminology" : { },
+      "metadataSymbols" : "SquareBrackets",
+      "lastSavedView" : "ToyStoreApi"
+    }
+  }
+}

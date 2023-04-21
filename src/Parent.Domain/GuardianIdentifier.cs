@@ -20,8 +20,4 @@ public record GuardianIdentifier : ValueObject
         
         Id = id;
     }
-
-    public GuardianIdentifier()
-    {
-    }
 }
